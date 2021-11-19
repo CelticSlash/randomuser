@@ -2,7 +2,7 @@ import React from "react";
 
 export default class GenshinCharacter extends React.Component{
     state = {
-        charName: 'eula',
+        charName: 'jean',
         urlImg: undefined,
         loading: true,
         char: undefined,
@@ -59,18 +59,16 @@ export default class GenshinCharacter extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>{char.skillTalents[0].name}</td>
-                            <td>{char.skillTalents[0].description}</td>
-                        </tr>
-                        <tr>
-                            <td>{char.skillTalents[1].name}</td>
-                            <td>{char.skillTalents[1].description}</td>
-                        </tr>
-                        <tr>
-                            <td>{char.skillTalents[2].name}</td>
-                            <td>{char.skillTalents[2].description}</td>
-                        </tr>
+                        {
+                            char.skillTalents.map((talent) => {
+                                return(
+                                    <tr>
+                                        <td>{talent.name}</td>
+                                        <td>{talent.description}</td>
+                                    </tr>
+                                )
+                            })
+                        }
                         </tbody>
                     </table>
                 </div>
